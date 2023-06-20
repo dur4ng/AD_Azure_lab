@@ -1,10 +1,6 @@
 # ADLab
-_By [@thehackerish](https://twitter.com/thehackerish)_
-Video tutorial on https://youtu.be/H76WtmP2Je4
-
-_Based heavily on the work of [@chvancooten](https://twitter.com/chvancooten), Ansible role for Elastic Security deployment by [@nodauf](https://twitter.com/nodauf)_
-
-Provisioning scripts for an Active Directory lab environment. Designed to be deployed to Azure.
+_By [@thehackerish](https://twitter.com/thehackerish)_[@chvancooten](https://twitter.com/chvancooten)
+Just some minor updates to make it work again.
 
 ## Setup
 
