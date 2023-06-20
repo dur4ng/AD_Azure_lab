@@ -1,0 +1,7 @@
+
+ansible_user: dur4n
+ansible_password: nX0gaakNQ8zb4FNh
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore
+domain_name: bollos.local
+reverse_dns_zone: "10.13.37.0/24"

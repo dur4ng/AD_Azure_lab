@@ -1,0 +1,6 @@
+
+ansible_user: dur4n
+ansible_password: E1FhzyQU0hC2SOIK
+ansible_become: true
+ansible_connection: ssh
+ansible_winrm_server_cert_validation: ignore
