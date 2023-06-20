@@ -10,6 +10,19 @@ Provisioning scripts for an Active Directory lab environment. Designed to be dep
 
 The lab is provisioned automatically using Terraform and Ansible. First, Terraform deploys all the infrastructure and prepares the machines for provisioning. It then kicks off a role-based Ansible playbook from the Debian attacker machine to provision the Windows-based machines. The full process takes about 15 to 20 minutes to complete.
 
+If you have problems with default providers you must register them manually.
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/common-deployment-errors#noregisteredproviderfound
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-cli
+
+- az provider register --namespace Microsoft.Compute
+- az provider register --namespace Microsoft.Network
+- az provider show -n Microsoft.Network
+- az provider show -n Microsoft.Compute
+
+- change domain
+- change password for linux user (Terraform/07-hackbox.tf and Terraform/08-ansible.tf)
+- set an ip in the whitelist to be able to ssh (Terraform/terraform.tfvars)
+
 > 💸 **Note:** The machine sizes are moderately small by default ('Standard_B1ms'). For better performence, use Standard_B2ms or Standard_B4ms. With the latter, the bill will be approx. €10 per day of active use, your mileage may vary. Change the appropriate 'size' settings in `terraform.tfvars` to change machine sizes.
 
 ### Deployment
@@ -46,18 +59,4 @@ One public IP is exposed for the whole lab. The IP ranges defined in the `ip-whi
 
 Another public IP is used for outbound Internet connectivity for all lab machines.
 
-## Notes
-body -> response_body
-
-https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/common-deployment-errors#noregisteredproviderfound
-https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-cli
-
-az provider register --namespace Microsoft.Compute
-az provider register --namespace Microsoft.Network
-az provider show -n Microsoft.Network
-az provider show -n Microsoft.Compute
-
-change domain
-change password for linux user (Terraform/07-hackbox.tf and Terraform/08-ansible.tf)
-set an ip in the whitelist to be able to ssh (Terraform/terraform.tfvars)
 
